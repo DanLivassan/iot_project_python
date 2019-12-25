@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Instrumentos</title>
+</head>
+<body>
+    <ul>
+        {% for item in items %}
+        <form method="POST">
+            {% csrf_token %}
+            <li>{{item.name}}: {% if item.value %} {{"Ligado"}}{% else %}{{"Desligado"}}{% endif %}</li>
+            <button type="submit">{% if item.value %} {{"Desligar"}}{% else %}{{"Ligar"}}{% endif %}</button>
+        </form>
+        {% endfor %}
+    </ul>
+</body>
+</html>
